@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Button } from "./components/buttons";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +17,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="pt-br">
+      <body >
+        <div className="black-drop"> 
+        <header><Button text="Logar" /></header>
+        {children}
+        <footer><h1>Footer</h1></footer>
+        </div>
+      </body>
     </html>
   );
 }
