@@ -20,9 +20,9 @@ const router = useRouter()
   const LoginSchema = z.object({
     email: z.string().email("Insira um e-mail válido"),
     password: z.string().min(6, "A senha deve ter no mínimo 6 caracteres"),
-    username: z.string(),
-    linkedin_perfil: z.string(),
+    username: z.string().min(1, "Campo obrigatório"),
     contact_phone: z.string(),
+    linkedin_perfil: z.string(),
     git_hub_perfil: z.string()
   });
 
@@ -54,10 +54,9 @@ const router = useRouter()
             <Input  title="E-mail" error={errors.email} register={register("email")}/>
             <Input type="password" title="Password" error={errors.password} register={register("password")} />
             <Input  title="Nome" error={errors.username} register={register("username")}/>
-            <Input  title="Linkedin" error={errors.linkedin_perfil} register={register("linkedin_perfil")}/>
             <Input  title="Telefone" error={errors.contact_phone} register={register("contact_phone")}/>
+            <Input  title="Linkedin" error={errors.linkedin_perfil} register={register("linkedin_perfil")}/>
             <Input  title="Git Hub" error={errors.git_hub_perfil} register={register("git_hub_perfil")}/>
-            
            
             <Button key={"Logar"} text="Logar" type="submit" />
         </form>
