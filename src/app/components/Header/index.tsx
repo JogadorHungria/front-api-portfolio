@@ -1,47 +1,102 @@
 "use client"
 
-import { Api_portfolio } from "@/app/API";
-import { Button } from "../buttons"
+import Link from "next/link"
+import { usePathname } from 'next/navigation'
+import { StyledHeader } from "./styledHeader"
+import router, { useRouter } from "next/router"
 
 export const Header = () => {
 
-  const modalLogar = async ()  => {
+  const pathname = usePathname()
+ 
   
-    const user = {
-      email: "novousuario@gmail.com",
-      password: "1234"
-    }
+  const deslogar = async () =>{
 
-    await Api_portfolio.post("/login", user)
-    .then(response => {
-      
-      console.log(response.data);
-      
-    })
-    .catch(error => {
-      
-      console.error("Ocorreu um erro:", error);
-    });
-
-    console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-
-  }
-
-  const modalCriarConta = () => {
-  
-    alert("Modal criar conta")
+    alert("deslogando em...")
     return
-
+  
   }
+
 
   return (
 
-    <header>
-  
-      <Button key={"Criar conta"} text="Modan Criar conta" click={ modalCriarConta}/> 
-      <Button key={"Logar"} text="Logar" click={ modalLogar}/>
-     
-    </header>
+    <StyledHeader>
+      <nav>
+          <ul>
+          { 
+          pathname === "/login"  && 
+          <>
+            <li>
+              <Link href="/">
+                Home
+              </Link>
+            </li>
+
+
+            <li>
+            <Link href="/register">
+              Registrar
+            </Link>
+            </li>
+            </>
+          }
+
+       
+
+          
+
+          {
+
+          pathname == "/"  &&
+          <>
+            <li>
+              <Link href="/login">
+                Login
+              </Link>
+            </li>
+
+            <li>
+            <Link href="/register">
+              Registrar
+            </Link>
+            </li>
+          </>
+          }
+          
+          {
+
+          pathname == "/register" &&
+          <>
+            <li>
+              <Link href="/">
+                Home
+              </Link>
+            </li>
+
+            <li>
+            <Link href="/login">
+              Login
+            </Link>
+            </li>
+          </>
+
+          }
+
+            
+
+          { 
+
+          pathname == "/dashboard" &&
+            <li>
+              <Link onClick={() => deslogar() } href="/">
+                Deslogar
+              </Link>
+            </li>
+          }
+
+          </ul>
+        </nav>
+    </StyledHeader>
   
   );
 }

@@ -1,3 +1,4 @@
+import { SyledButton } from "./styledButton"
 
 
 interface ButtonProps  {
@@ -15,8 +16,7 @@ export const Button : React.FC<ButtonProps> = ({text, type, click}: ButtonProps 
 
   return  (
 
-
-   <button type={type} onClick={click}>{text}</button>
+   <SyledButton type={type} onClick={click}>{text}</SyledButton>
 
   )
 
