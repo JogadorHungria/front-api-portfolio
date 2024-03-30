@@ -44,11 +44,125 @@ const router = useRouter()
 
   return (
     <StyledLogin> 
-    <main>
+ 
+      <h1>Dash Board</h1>
 
-        <h1>Dash Board</h1>
+      <section>
+        <h2>User</h2>
+      </section>
 
-    </main>
+      <section>
+        <h2>Projects</h2>
+        <ul>
+
+          <li>
+             <div> Imagem</div>
+            <span>Titulo</span>
+          </li>
+
+          <li>
+             <div> Imagem</div>
+            <span>Titulo</span>
+          </li>
+
+          <li>
+             <div> Imagem</div>
+            <span>Titulo</span>
+          </li>
+
+          <li>
+             <div> Imagem</div>
+            <span>Titulo</span>
+          </li>
+
+          <li>
+             <div> Imagem</div>
+            <span>Titulo</span>
+          </li>
+
+          <li>
+             <div> Imagem</div>
+            <span>Titulo</span>
+          </li>
+
+        </ul>
+      </section>
+
+      <section>
+        <h2>stacks</h2>
+
+        <ul>
+
+<li>
+   <div> Imagem</div>
+  <span>Titulo</span>
+</li>
+
+<li>
+   <div> Imagem</div>
+  <span>Titulo</span>
+</li>
+
+<li>
+   <div> Imagem</div>
+  <span>Titulo</span>
+</li>
+
+<li>
+   <div> Imagem</div>
+  <span>Titulo</span>
+</li>
+
+<li>
+   <div> Imagem</div>
+  <span>Titulo</span>
+</li>
+
+<li>
+   <div> Imagem</div>
+  <span>Titulo</span>
+</li>
+
+</ul>
+      </section>
+
+      <section>
+        <h2>Certificates</h2>
+
+        <ul>
+
+<li>
+   <div> Imagem</div>
+  <span>Titulo</span>
+</li>
+
+<li>
+   <div> Imagem</div>
+  <span>Titulo</span>
+</li>
+
+<li>
+   <div> Imagem</div>
+  <span>Titulo</span>
+</li>
+
+<li>
+   <div> Imagem</div>
+  <span>Titulo</span>
+</li>
+
+<li>
+   <div> Imagem</div>
+  <span>Titulo</span>
+</li>
+
+<li>
+   <div> Imagem</div>
+  <span>Titulo</span>
+</li>
+
+</ul>
+      </section>
 
     </StyledLogin>
   );

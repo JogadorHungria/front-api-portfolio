@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from 'next/navigation'
 import { StyledHeader } from "./styledHeader"
-import router, { useRouter } from "next/router"
+
 
 export const Header = () => {
 
@@ -13,8 +13,7 @@ export const Header = () => {
   const deslogar = async () =>{
 
     alert("deslogando em...")
-    return
-  
+    
   }
 
 
@@ -41,9 +40,6 @@ export const Header = () => {
             </>
           }
 
-       
-
-          
 
           {
 
@@ -81,8 +77,6 @@ export const Header = () => {
           </>
 
           }
-
-            
 
           { 
 

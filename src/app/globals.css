@@ -14,6 +14,12 @@ a , button{
 
 }
 
+li, ul{
+
+  list-style: none;
+
+}
+
 body{
   background-image: url(../../public/pexels-riccardo-bertolo-4245826.jpg);
   background-position: center;
