@@ -23,7 +23,7 @@ align-items: center;
 button{
     position: absolute;
     top: -15px;
-    right: -15px;
+    right: -20px;
 
     background:none;
 
