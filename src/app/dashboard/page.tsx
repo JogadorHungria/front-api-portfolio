@@ -7,8 +7,19 @@ import { useForm } from "react-hook-form";
 import { StyledLogin } from "./dashboardStyled";
 import { useRouter } from 'next/navigation'
 import { CardProject } from "../components/Cards";
+import { useContext, useEffect, useState } from "react";
+import { ModalContext } from "../provider";
 
 const Dashboard = () => {
+
+  const {profile, get_profile} = useContext(ModalContext)
+ 
+  useEffect(()=>{ 
+
+    get_profile()
+    
+  },[])
+  console.log(profile)
  
   // const router = useRouter()
 
@@ -43,12 +54,7 @@ const Dashboard = () => {
   
         <section>
           <h2>User</h2>
-          <label htmlFor="">Nome</label>
-          <input type="text" name="" id="" />
-          <label htmlFor="">Nome</label>
-          <input type="text" name="" id="" />
-          <label htmlFor="">Nome</label>
-          <input type="text" name="" id="" />
+          <span>{profile && profile.username}</span>
         </section>
 
         <section>

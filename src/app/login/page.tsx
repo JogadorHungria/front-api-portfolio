@@ -8,6 +8,8 @@ import { Button } from "../components/buttons";
 import { useForm } from "react-hook-form";
 import { StyledLogin } from "./LoginStyled";
 import { useRouter } from 'next/navigation'
+import { useContext } from "react";
+import { ModalContext } from "../provider";
 
 const Login = () => {
 
@@ -15,11 +17,11 @@ const Login = () => {
  
 const router = useRouter()
  
-
+const {logar , profile, setProfile} = useContext(ModalContext)
 
   const LoginSchema = z.object({
     email: z.string().email("Insira um e-mail válido"),
-    password: z.string().min(6, "A senha deve ter no mínimo 6 caracteres"),
+    password: z.string().min(4, "A senha deve ter no mínimo 4 caracteres"),
   });
 
 
@@ -32,10 +34,13 @@ const router = useRouter()
   });
 
 
-  const submit = (data: any) => {
+  const submit = async (data: any) => {
+
+    setProfile(null)
+
+    await logar(data.email , data.password)
 
     router.push('/dashboard', { scroll: false })
-
     return
 
   };
