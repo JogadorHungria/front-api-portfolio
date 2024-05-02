@@ -23,7 +23,7 @@ section{
     ul{
     
         display: flex;
-        gap: 10px;
+        gap: 25px;
 
         overflow-x: auto;
 

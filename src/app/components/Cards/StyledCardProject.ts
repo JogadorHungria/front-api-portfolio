@@ -1,11 +1,15 @@
+"use-client"
 import styled from "styled-components";
 
 export const StyledCardProject = styled.li`
 
-cursor: pointer;
+
+
+position: relative;
+
 
 min-width: 200px;
-max-height: 300px;
+height: 200px;
 
 background-color: blue;
 padding: 5px;
@@ -16,7 +20,20 @@ display: flex;
 flex-direction: column;
 align-items: center;
 
+button{
+    position: absolute;
+    top: -15px;
+    right: -15px;
+
+    background:none;
+
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
 div{
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,11 +43,12 @@ div{
     border: none;
 
     img{
+
     border-radius: 5px;
     width: 90%;
-    max-height: 90%;
+    height: 90%;
 
-}
+    }
 
 }
 
