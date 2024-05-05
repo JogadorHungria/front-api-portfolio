@@ -43,7 +43,7 @@ export const GlobalProvider = ({ children } : IChildren ) => {
     }).catch(error => {
       
       console.error("Ocorreu um erro ao LOGAR:", error);
-      return true
+      return 
     })
    
   }
