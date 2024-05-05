@@ -1,8 +1,9 @@
-"use client"
+
+
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  z-index: 100;
+  /* z-index: 100;
   position: fixed;
     
   width: 100%;
@@ -57,6 +58,6 @@ export const StyledHeader = styled.header`
         }
 
     }
-}
+} */
 
 `

@@ -48,8 +48,11 @@ const Dashboard = () => {
 
     return (
       <StyledLogin> 
-  
-        <section>
+
+      { profile &&  
+      <>
+      
+      <section>
           <h2>User</h2>
           <span>{profile && profile.username}</span>
         </section>
@@ -58,10 +61,15 @@ const Dashboard = () => {
           <h2>Projects</h2>
           <ul>
           
-            {profile && profile.project.map((pro: any)=> 
-            <CardProject key={pro.project_id} img={pro.img} title={pro.title} id={pro.project_id}/>)
+            {
+              !profile.project[0] 
+              ? <CardProject project={true} img={"https://img.freepik.com/vetores-gratis/novo-design-de-icone-x-do-logotipo-do-twitter-em-2023_1017-45418.jpg?size=338&ext=jpg&ga=GA1.1.672697106.1714780800&semt=ais"} title={"not project"} id={1} /> 
+              : profile.project.map((pro: any)=> 
+                <CardProject  key={pro.project_id} img={pro.img} title={pro.title} id={pro.project_id}/>)
             }
 
+            {/* {!profile.project ? <CardProject img={""} title={"not project"} id={1} /> : <></>} */}
+            
           </ul>
 
         </section>
@@ -97,8 +105,12 @@ const Dashboard = () => {
           </ul>
         </section>
 
+        </> }
       </StyledLogin>
+
+      
     );
+  
 };
 
 export default Dashboard

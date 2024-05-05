@@ -1,0 +1,58 @@
+header{
+    z-index: 100;
+    position: fixed;
+      
+    width: 100%;
+    height: 100px;
+  
+    padding: 20px;
+  
+    display: flex;
+    align-items: center ;
+    justify-content: right;
+    gap: 20px;
+  
+    background-color: rgb(0, 0, 90);
+    box-shadow: 0 0 5px rgb(0, 0, 90);
+   
+    nav {
+      width: 100%;
+      height: 100px;
+  
+      ul{
+      
+          width: 100%;
+          height: 100%;
+  
+          display: flex;
+          gap: 15px;
+          justify-content: right;
+          align-items: center;
+          list-style: none;
+  
+          li{
+              padding: 5px;
+              border: solid 1px;
+              background-color: white;
+  
+              border-radius: 4px;
+              opacity: 90%;
+              border: solid 2px white;
+              cursor: pointer;
+  
+              a{
+              
+                  color: black;
+                  font-weight: 600;
+  
+              }
+  
+          }
+  
+          li:hover{
+              opacity: 1;
+          }
+  
+      }
+  }
+}

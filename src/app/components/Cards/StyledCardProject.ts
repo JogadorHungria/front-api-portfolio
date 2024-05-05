@@ -4,12 +4,8 @@ import styled from "styled-components";
 export const StyledCardProject = styled.li`
 
 
-
-position: relative;
-
-
 min-width: 200px;
-height: 200px;
+height: 250px;
 
 background-color: blue;
 padding: 5px;
@@ -19,37 +15,36 @@ border-radius: 5px;
 display: flex;
 flex-direction: column;
 align-items: center;
+justify-content: space-around;
 
-button{
-    position: absolute;
-    top: -15px;
-    right: -20px;
 
-    background:none;
+img{
 
-    margin: 0;
-    padding: 0;
-    display: flex;
+    min-width: 90%;
+    max-height: 70%;
+
 }
 
 div{
 
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height:80%;
-    
-    border: none;
+    gap:10px ;
+    max-height: 20%;
 
-    img{
+    button{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
 
-    border-radius: 5px;
-    width: 90%;
-    height: 90%;
-
+        width:75px;
+        height: 30px;
+        
     }
 
 }
+
+
+
 
 `
