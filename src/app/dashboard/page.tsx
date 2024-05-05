@@ -86,8 +86,14 @@ const Dashboard = () => {
 
           <ul>
 
-            {cardNmbers.map((card)=> <CardProject img={""} title={`Certificat ${card}`} id={card}/>)}
-  
+          {profile && profile.certificate.map((pro: any)=> 
+            <CardProject
+              key={pro.certificate_id}
+              img={""} 
+              title={""} 
+              id={pro.certificate_id}/>)
+            }
+
           </ul>
         </section>
 
