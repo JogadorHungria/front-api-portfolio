@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from 'next/navigation'
-import { StyledHeader } from "./styledHeader"
+
 
 export const Header = () => {
 
@@ -16,7 +16,7 @@ export const Header = () => {
 
   return (
 
-    <StyledHeader>
+    <header>
       <nav>
           <ul>
           { 
@@ -87,7 +87,7 @@ export const Header = () => {
 
           </ul>
         </nav>
-    </StyledHeader>
+    </header>
   
   );
 }

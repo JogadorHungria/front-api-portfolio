@@ -36,10 +36,18 @@ div{
         flex-direction: column;
         text-align: center;
         justify-content: center;
-
+        border: solid 1px;
         width:75px;
         height: 30px;
+        font-weight: 600;
         
+    }
+
+    button + button {
+    
+        background-color: red;
+        color: white;
+        border: solid 1px;
     }
 
 }
