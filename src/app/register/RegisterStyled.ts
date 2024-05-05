@@ -1,9 +1,14 @@
 import styled from "styled-components";
 
 export const StyledLogin = styled.main`
+display: flex;
+align-items: center;
+justify-content: center;
+padding-top: 100px;
+
 
 width: 100%;
-height: calc(100vh - 100px);
+min-height: calc(100vh - 100px);
 
 form{
 

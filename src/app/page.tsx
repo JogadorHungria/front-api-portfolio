@@ -1,12 +1,8 @@
 "use client"
 
-import { useContext } from "react";
-import { ModalContext } from "./provider";
-import { Modal } from "./components/Modal";
-
 export default function Home() {
 
-  const { modal } = useContext(ModalContext) 
+ 
 
   return (
     <main>

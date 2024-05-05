@@ -3,6 +3,8 @@
 import Link from "next/link"
 import { usePathname } from 'next/navigation'
 import { StyledHeader } from "./styledHeader"
+import { useContext } from "react"
+import { GlobalContext } from "@/app/provider"
 
 
 export const Header = () => {
@@ -10,8 +12,8 @@ export const Header = () => {
   const pathname = usePathname()
  
   
-  const deslogar = async () =>{
-
+  const deslogar = () =>{
+    localStorage.clear()
     alert("deslogando em...")
     
   }

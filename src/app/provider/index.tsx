@@ -3,9 +3,9 @@
 import React, { createContext, useState, ReactNode, useContext } from "react";
 import { Api_portfolio } from "../API/api_portfolio";
 
-interface IModalContext {
+interface IGlobalContext {
 
-   logar: (email: string, password: string) => Promise<string | null>
+   logar: (email: string, password: string) => Promise<void>
    profile: any
    setProfile: React.Dispatch<any>
    get_profile: () => Promise<void>
@@ -16,11 +16,9 @@ interface IChildren {
 }
 
 
-export const ModalContext = createContext<IModalContext>({} as IModalContext);
+export const GlobalContext = createContext<IGlobalContext>({} as IGlobalContext);
 
-export const ModalProvider = ({ children } : IChildren ) => {
- 
-  const [token, setToken ] = useState<string | null>(null)
+export const GlobalProvider = ({ children } : IChildren ) => {
  
   const [profile, setProfile] = useState<any>(null)
 
@@ -31,26 +29,30 @@ export const ModalProvider = ({ children } : IChildren ) => {
       password: password
     }
 
-    await Api_portfolio.post("/login", user)
+
+    await Api_portfolio.post("/login", user )
     .then(response => {
       
-      setToken(response.data.token)
-     
+      localStorage.setItem("@token", response.data.token)
+
     }).catch(error => {
       
       console.error("Ocorreu um erro ao LOGAR:", error);
-
-    });
-
-    return token
+      return true
+    })
+   
   }
 
+  
+
    const get_profile = async ()  => {
-    
+
+     const tokenLocalStorage = localStorage.getItem("@token")
+
      await Api_portfolio.get("/user/profile", {
 
       headers: {
-        'Authorization': `Bearer ${token}`
+        'Authorization': `Bearer ${tokenLocalStorage}`
       }
     })
     .then(response => {
@@ -66,8 +68,8 @@ export const ModalProvider = ({ children } : IChildren ) => {
   }
 
   return (
-    <ModalContext.Provider value={{ logar , profile , setProfile, get_profile}}>
+    <GlobalContext.Provider value={{ logar , profile , setProfile, get_profile}}>
       {children}
-    </ModalContext.Provider>
+    </GlobalContext.Provider>
   );
 };

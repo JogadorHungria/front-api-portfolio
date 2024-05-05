@@ -5,9 +5,10 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Button } from "./components/buttons";
 import { Header } from "./components/Header";
-import { Modal } from "./components/Modal";
-import { ModalContext, ModalProvider } from "./provider";
+
+
 import { useContext } from "react";
+import { GlobalProvider } from "./provider";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -26,7 +27,7 @@ export default function RootLayout({
  
   return (
     <html lang="pt-br">
-      <ModalProvider>
+      <GlobalProvider>
         <body>
 
           <div className="black-drop"> 
@@ -36,7 +37,7 @@ export default function RootLayout({
           </div>
         
         </body>
-      </ModalProvider>
+      </GlobalProvider>
     </html>
   );
 }

@@ -1,26 +1,23 @@
 "use client"
 
-import z from "zod";
-
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import { StyledLogin } from "./dashboardStyled";
-import { useRouter } from 'next/navigation'
+
 import { CardProject } from "../components/Cards";
 import { useContext, useEffect, useState } from "react";
-import { ModalContext } from "../provider";
+import { GlobalContext } from "../provider";
+import { useRouter } from "next/router";
 
 const Dashboard = () => {
 
-  const {profile, get_profile} = useContext(ModalContext)
- 
-  useEffect(()=>{ 
+  const {profile, get_profile, } = useContext(GlobalContext)
+  
+  useEffect(() => { 
 
     get_profile()
-    
+
   },[])
-  console.log(profile)
- 
+    
+  
   // const router = useRouter()
 
   //   const LoginSchema = z.object({
@@ -61,7 +58,9 @@ const Dashboard = () => {
           <h2>Projects</h2>
           <ul>
           
-            {cardNmbers.map((card)=> <CardProject img={""} title={`Project ${card}`} id={card}/>)}
+            {profile && profile.project.map((pro: any)=> 
+            <CardProject key={pro.project_id} img={pro.img} title={pro.title} id={pro.project_id}/>)
+            }
 
           </ul>
 

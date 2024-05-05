@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 import { StyledLogin } from "./LoginStyled";
 import { useRouter } from 'next/navigation'
 import { useContext } from "react";
-import { ModalContext } from "../provider";
+import { GlobalContext } from "../provider";
 
 const Login = () => {
 
@@ -17,13 +17,12 @@ const Login = () => {
  
 const router = useRouter()
  
-const {logar , profile, setProfile} = useContext(ModalContext)
+const {logar} = useContext(GlobalContext)
 
   const LoginSchema = z.object({
     email: z.string().email("Insira um e-mail válido"),
     password: z.string().min(4, "A senha deve ter no mínimo 4 caracteres"),
   });
-
 
   const {
     register,
@@ -36,14 +35,22 @@ const {logar , profile, setProfile} = useContext(ModalContext)
 
   const submit = async (data: any) => {
 
-    setProfile(null)
-
     await logar(data.email , data.password)
 
-    router.push('/dashboard', { scroll: false })
-    return
+    const token = localStorage.getItem("@token")
 
+    if(token == "undefined" || !token){
+
+      alert("verifique os dados e tente novamente")
+
+      return
+
+    }
+      router.push('/dashboard', { scroll: false })
+      console.log(token)
+      return
   };
+  
 
   return (
     <StyledLogin> 
