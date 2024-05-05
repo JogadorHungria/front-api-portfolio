@@ -70,8 +70,13 @@ const Dashboard = () => {
           <h2>Stacks</h2>
           <ul>
 
-            {cardNmbers.map((card)=> <CardProject img={"https://img.freepik.com/fotos-gratis/paisagem-de-nevoeiro-matinal-e-montanhas-com-baloes-de-ar-quente-ao-nascer-do-sol_335224-794.jpg?size=626&ext=jpg&ga=GA1.1.672697106.1714435200&semt=sph"} title={`Stack ${card}`} id={card}/>)}
-  
+          {profile && profile.stacks.map((pro: any)=> 
+            <CardProject
+              key={pro.stack_id}
+              img={""} 
+              title={pro.stack_name} 
+              id={pro.stack_id}/>)
+            }
           </ul>
 
         </section>
