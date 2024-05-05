@@ -2,7 +2,7 @@
 
 import React, { createContext, useState, ReactNode, useContext } from "react";
 import { Api_portfolio } from "../API/api_portfolio";
-import { IUserCreate } from "../@types";
+import { IUser, IUserCreate } from "../@types";
 
 interface IGlobalContext {
 
@@ -11,6 +11,7 @@ interface IGlobalContext {
    setProfile: React.Dispatch<any>
    get_profile: () => Promise<void>
    registerUser: (body: IUserCreate) => Promise<void>
+   deletProject:  (id: number) => Promise<void>
 };
 
 interface IChildren {
@@ -22,7 +23,7 @@ export const GlobalContext = createContext<IGlobalContext>({} as IGlobalContext)
 
 export const GlobalProvider = ({ children } : IChildren ) => {
  
-  const [profile, setProfile] = useState<any>(null)
+  const [profile, setProfile] = useState<IUser| null>( null)
 
   const logar = async (email: string, password: string) => {
 
@@ -30,7 +31,6 @@ export const GlobalProvider = ({ children } : IChildren ) => {
       email: email,
       password: password
     }
-
 
     await Api_portfolio.post("/login", user )
     .then(response => {
@@ -41,6 +41,37 @@ export const GlobalProvider = ({ children } : IChildren ) => {
       
       console.error("Ocorreu um erro ao LOGAR:", error);
       return true
+    })
+   
+  }
+
+  const deletProject = async (id: number) => {
+
+    const tokenLocalStorage = localStorage.getItem("@token")
+
+      await Api_portfolio.delete(`/project/${id}`, {
+
+        headers: {
+          'Authorization': `Bearer ${tokenLocalStorage}`
+        }
+    } )
+    .then(response => {
+      
+      
+
+      
+      const newProjectList = profile?.project.filter((project)=> project.project_id != id)
+      const newProfile = {
+        ...profile,
+        project:newProjectList
+
+      }
+      setProfile(newProfile as IUser)
+
+    }).catch(error => {
+      
+      console.error("Ocorreu um erro ao EXCLUIR:", error);
+      return
     })
    
   }
@@ -66,12 +97,12 @@ export const GlobalProvider = ({ children } : IChildren ) => {
 
      const tokenLocalStorage = localStorage.getItem("@token")
 
-     await Api_portfolio.get("/user/profile", {
-
-      headers: {
-        'Authorization': `Bearer ${tokenLocalStorage}`
+      await Api_portfolio.get("/user/profile", {
+          headers: {
+            'Authorization': `Bearer ${tokenLocalStorage}`
+          }
       }
-    })
+    )
     .then(response => {
       
       setProfile(response.data)
@@ -85,7 +116,14 @@ export const GlobalProvider = ({ children } : IChildren ) => {
   }
 
   return (
-    <GlobalContext.Provider value={{ logar , profile , setProfile, get_profile, registerUser}}>
+    <GlobalContext.Provider value={{ 
+      logar, 
+      profile,
+      setProfile,
+      get_profile,
+      registerUser,
+      deletProject
+      }}>
       {children}
     </GlobalContext.Provider>
   );

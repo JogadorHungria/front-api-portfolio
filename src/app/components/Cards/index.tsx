@@ -1,29 +1,41 @@
 "use client"
 
+import { useContext } from "react";
 import { StyledCardProject } from "./StyledCardProject";
 import { RiEditBoxFill } from "react-icons/ri";
+import { GlobalContext } from "@/app/provider";
 
-type cardProps = {
+type TcardProps = {
 
   img: string
   title:string
   id: number
   project?: boolean
+  type: "project" | "stack" | "certificate"
 
 }
 
-export const CardProject = ({img , title , id , project}: cardProps) => {
+
+export const CardProject = ({img , title , id , project , type}: TcardProps) => {
+
+  const {deletProject} = useContext(GlobalContext)
+
+  const deletCard = () =>{ 
+
+    if(type == "project"){
+      deletProject(id)
+    }
+
+  }
 
   let imgLink = img || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBlPuD-kHu75Tl04N5i_UC3VIOZWeWZvqEHgtnf8Dbqw&s"
-  console.log(project)
-
   return (
 
     <StyledCardProject>
       <img src={imgLink} alt="Capa" />
       <span>{title}</span>
       <div>
-        {!project ? <><button>Editar</button> <button>Exluir</button></>  : <></> }
+        {!project ? <><button>Editar</button> <button onClick={() => deletCard()}>Exluir</button></>  : <></> }
       </div>
     </StyledCardProject>
   
