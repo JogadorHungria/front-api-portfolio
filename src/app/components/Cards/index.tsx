@@ -18,7 +18,7 @@ type TcardProps = {
 
 export const CardProject = ({img , title , id , project , type}: TcardProps) => {
 
-  const {deletProject} = useContext(GlobalContext)
+  const {deletProject, deletCertificate, deletStack} = useContext(GlobalContext)
 
   const deletCard = () =>{ 
 
@@ -26,6 +26,13 @@ export const CardProject = ({img , title , id , project , type}: TcardProps) => 
       deletProject(id)
     }
 
+    if(type == "stack"){
+      deletStack(id)
+    }
+
+    if(type == "certificate"){
+      deletCertificate(id)
+    }
   }
 
   let imgLink = img || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBlPuD-kHu75Tl04N5i_UC3VIOZWeWZvqEHgtnf8Dbqw&s"

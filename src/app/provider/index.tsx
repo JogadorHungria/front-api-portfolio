@@ -12,6 +12,9 @@ interface IGlobalContext {
    get_profile: () => Promise<void>
    registerUser: (body: IUserCreate) => Promise<void>
    deletProject:  (id: number) => Promise<void>
+   deletStack: (id: number) => Promise<void>
+   deletCertificate: (id: number) => Promise<void>
+   
 };
 
 interface IChildren {
@@ -57,13 +60,66 @@ export const GlobalProvider = ({ children } : IChildren ) => {
     } )
     .then(response => {
       
-      
-
-      
       const newProjectList = profile?.project.filter((project)=> project.project_id != id)
       const newProfile = {
         ...profile,
         project:newProjectList
+
+      }
+      setProfile(newProfile as IUser)
+
+    }).catch(error => {
+      
+      console.error("Ocorreu um erro ao EXCLUIR:", error);
+      return
+    })
+   
+  }
+
+  const deletStack = async (id: number) => {
+
+    const tokenLocalStorage = localStorage.getItem("@token")
+
+      await Api_portfolio.delete(`/stack/${id}`, {
+
+        headers: {
+          'Authorization': `Bearer ${tokenLocalStorage}`
+        }
+    } )
+    .then(response => {
+      
+      const newStackList = profile?.stacks.filter((stack)=> stack.stack_id != id)
+      const newProfile = {
+        ...profile,
+        stacks: newStackList
+
+      }
+      setProfile(newProfile as IUser)
+
+    }).catch(error => {
+      
+      console.error("Ocorreu um erro ao EXCLUIR:", error);
+      return
+    })
+   
+  }
+
+  const deletCertificate = async (id: number) => {
+
+    const tokenLocalStorage = localStorage.getItem("@token")
+
+      await Api_portfolio.delete(`/certificate/${id}`, {
+
+        headers: {
+          'Authorization': `Bearer ${tokenLocalStorage}`
+        }
+    } )
+    .then(response => {
+      
+      const newCertificateList = profile?.certificate.filter((stack)=> stack.certificate_id != id)
+      const newProfile = {
+        ...profile,
+        certificate: newCertificateList
 
       }
       setProfile(newProfile as IUser)
@@ -122,7 +178,9 @@ export const GlobalProvider = ({ children } : IChildren ) => {
       setProfile,
       get_profile,
       registerUser,
-      deletProject
+      deletProject,
+      deletStack,
+      deletCertificate
       }}>
       {children}
     </GlobalContext.Provider>
