@@ -4,11 +4,11 @@ export const StyledLogin = styled.main`
 display: flex;
 align-items: center;
 justify-content: center;
-padding-top: 100px;
+padding-top: 125px;
 
 
 width: 100%;
-min-height: calc(100vh - 100px);
+min-height: max-content;
 
 form{
 
@@ -20,7 +20,7 @@ form{
     border-radius: 6px;
 
     padding: 20px;
-    
+    padding-top: 25px;
     display: flex;
     flex-direction: column;
     gap: 15px;

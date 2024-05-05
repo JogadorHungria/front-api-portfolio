@@ -2,6 +2,7 @@
 
 import React, { createContext, useState, ReactNode, useContext } from "react";
 import { Api_portfolio } from "../API/api_portfolio";
+import { IUserCreate } from "../@types";
 
 interface IGlobalContext {
 
@@ -9,6 +10,7 @@ interface IGlobalContext {
    profile: any
    setProfile: React.Dispatch<any>
    get_profile: () => Promise<void>
+   registerUser: (body: IUserCreate) => Promise<void>
 };
 
 interface IChildren {
@@ -43,6 +45,21 @@ export const GlobalProvider = ({ children } : IChildren ) => {
    
   }
 
+
+  const registerUser = async (body : IUserCreate) => {
+
+    await Api_portfolio.post("/user", body )
+    .then(response => {
+      
+      console.log(response.data)
+
+    }).catch(error => {
+      
+      console.error(error.response.data.message);
+     
+    })
+   
+  }
   
 
    const get_profile = async ()  => {
@@ -68,7 +85,7 @@ export const GlobalProvider = ({ children } : IChildren ) => {
   }
 
   return (
-    <GlobalContext.Provider value={{ logar , profile , setProfile, get_profile}}>
+    <GlobalContext.Provider value={{ logar , profile , setProfile, get_profile, registerUser}}>
       {children}
     </GlobalContext.Provider>
   );

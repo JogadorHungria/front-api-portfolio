@@ -8,9 +8,12 @@ import { Button } from "../components/buttons";
 import { useForm } from "react-hook-form";
 import { StyledLogin } from "./RegisterStyled";
 import { useRouter } from 'next/navigation'
+import { useContext } from "react";
+import { GlobalContext } from "../provider";
 
 const Register = () => {
 
+  const {registerUser} = useContext(GlobalContext)
  
  
 const router = useRouter()
@@ -19,7 +22,7 @@ const router = useRouter()
 
   const LoginSchema = z.object({
     email: z.string().email("Insira um e-mail válido"),
-    password: z.string().min(6, "A senha deve ter no mínimo 6 caracteres"),
+    password: z.string().min(4, "A senha deve ter no mínimo 6 caracteres"),
     username: z.string().min(1, "Campo obrigatório"),
     contact_phone: z.string(),
     linkedin_perfil: z.string(),
@@ -36,9 +39,9 @@ const router = useRouter()
   });
 
 
-  const submit = (data: any) => {
-
-    router.push('/login', { scroll: false })
+  const submit = async (data: any) => {
+    await registerUser(data)
+    // router.push('/login', { scroll: false })
 
     return
 

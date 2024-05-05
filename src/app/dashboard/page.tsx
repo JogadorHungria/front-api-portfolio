@@ -74,7 +74,7 @@ const Dashboard = () => {
             <CardProject
               key={pro.stack_id}
               img={""} 
-              title={pro.stack_name} 
+              title={pro.stack_name}
               id={pro.stack_id}/>)
             }
           </ul>
