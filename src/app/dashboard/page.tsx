@@ -52,9 +52,11 @@ const Dashboard = () => {
       { profile &&  
       <>
       
-      <section>
-          <h2>User</h2>
+        <section>
+          <h2>Nome</h2>
           <span>{profile && profile.username}</span>
+          <h2>E-mail</h2>
+          <span>{profile && profile.email}</span>
         </section>
 
         <section>

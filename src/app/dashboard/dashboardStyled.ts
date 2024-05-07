@@ -13,8 +13,8 @@ width: 100%;
 section{
 
     width: 95%;
- 
-    padding: 10px;
+    max-width: 1200px;
+    padding: 20px;
     border-radius: 6px;
 
     background-color: rgb(0, 0, 90);
