@@ -6,10 +6,11 @@ import { CardProject } from "../components/Cards";
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../provider";
 import { useRouter } from "next/router";
+import { Modal } from "../components/Modal";
 
 const Dashboard = () => {
 
-  const {profile, get_profile, } = useContext(GlobalContext)
+  const {profile, get_profile, modal, setModal } = useContext(GlobalContext)
   
   useEffect(() => { 
 
@@ -48,7 +49,7 @@ const Dashboard = () => {
 
     return (
       <StyledLogin> 
-
+      { modal && <Modal />}
       { profile &&  
       <>
       
@@ -62,7 +63,7 @@ const Dashboard = () => {
         <section>
           <h2>Projects</h2>
           <ul>
-          
+
             {
               !profile.project[0] 
               ? <CardProject 

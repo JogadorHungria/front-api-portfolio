@@ -14,6 +14,8 @@ interface IGlobalContext {
    deletProject:  (id: number) => Promise<void>
    deletStack: (id: number) => Promise<void>
    deletCertificate: (id: number) => Promise<void>
+   modal: Boolean
+   setModal: React.Dispatch<Boolean>
    
 };
 
@@ -26,6 +28,9 @@ export const GlobalContext = createContext<IGlobalContext>({} as IGlobalContext)
 
 export const GlobalProvider = ({ children } : IChildren ) => {
  
+
+  const [modal, setModal] = useState<Boolean>(false)
+
   const [profile, setProfile] = useState<IUser| null>( null)
 
   const logar = async (email: string, password: string) => {
@@ -44,6 +49,21 @@ export const GlobalProvider = ({ children } : IChildren ) => {
       
       console.error("Ocorreu um erro ao LOGAR:", error);
       return 
+    })
+   
+  }
+
+  const registerUser = async (body : IUserCreate) => {
+
+    await Api_portfolio.post("/user", body )
+    .then(response => {
+      
+      console.log(response.data)
+
+    }).catch(error => {
+      
+      console.error(error.response.data.message);
+     
     })
    
   }
@@ -133,20 +153,7 @@ export const GlobalProvider = ({ children } : IChildren ) => {
   }
 
 
-  const registerUser = async (body : IUserCreate) => {
 
-    await Api_portfolio.post("/user", body )
-    .then(response => {
-      
-      console.log(response.data)
-
-    }).catch(error => {
-      
-      console.error(error.response.data.message);
-     
-    })
-   
-  }
   
 
    const get_profile = async ()  => {
@@ -180,7 +187,9 @@ export const GlobalProvider = ({ children } : IChildren ) => {
       registerUser,
       deletProject,
       deletStack,
-      deletCertificate
+      deletCertificate,
+      setModal,
+      modal
       }}>
       {children}
     </GlobalContext.Provider>

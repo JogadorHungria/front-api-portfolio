@@ -18,7 +18,13 @@ type TcardProps = {
 
 export const CardProject = ({img , title , id , project , type}: TcardProps) => {
 
-  const {deletProject, deletCertificate, deletStack} = useContext(GlobalContext)
+  const {deletProject, deletCertificate, deletStack , setModal} = useContext(GlobalContext)
+
+  const editCard = () => {
+
+    setModal(true)
+
+  }
 
   const deletCard = () =>{ 
 
@@ -42,7 +48,7 @@ export const CardProject = ({img , title , id , project , type}: TcardProps) => 
       <img src={imgLink} alt="Capa" />
       <span>{title}</span>
       <div>
-        {!project ? <><button>Editar</button> <button onClick={() => deletCard()}>Exluir</button></>  : <></> }
+        {!project ? <><button onClick={() => editCard()}>Editar</button> <button onClick={() => deletCard()}>Exluir</button></>  : <></> }
       </div>
     </StyledCardProject>
   

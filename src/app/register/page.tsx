@@ -18,8 +18,6 @@ const Register = () => {
  
 const router = useRouter()
  
-
-
   const LoginSchema = z.object({
     email: z.string().email("Insira um e-mail válido"),
     password: z.string().min(4, "A senha deve ter no mínimo 6 caracteres"),
