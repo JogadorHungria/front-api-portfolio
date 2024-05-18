@@ -4,7 +4,6 @@ export const  StyledModal = styled.div`
 
     top: 0;
     z-index: 111;
-    border-radius: 0;
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -17,23 +16,26 @@ export const  StyledModal = styled.div`
     opacity: 100%;
     
 
-  
-
     .container_modal{
 
         padding: 50px 10px;
-     
+        border-radius: 4px;
         background-color:blue;
         min-height: 200px;
         min-width: 400px;
         position: relative;
 
-        button{
+        > button{
 
             position: absolute;
-            right: 0;
-            top: 0;
-       
+            right: 5px;
+            top: 5px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            
+            font-size: 18px;
         }
 
 
