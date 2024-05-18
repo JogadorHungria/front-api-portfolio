@@ -1,6 +1,7 @@
 import { MouseEventHandler, useContext } from "react"
 import { StyledModal } from "./styledModal"
 import { GlobalContext } from "@/app/provider"
+import { Button } from "../buttons"
 
 
 
@@ -11,20 +12,38 @@ export const Modal = ({}) => {
 
   const {setModal} = useContext(GlobalContext)
 
-  const closeModal = () => {
 
-    setModal(false)
-
-  }
-
+  
   return  (
 
     <StyledModal>
 
-        <div>
+        <div className="container_modal">
+          <button onClick={()=> setModal(false)}>x</button>
 
-          <h1>MODAL</h1>
-          <button onClick={()=>closeModal()}>Fechar</button>
+          <form action="">
+
+            <label htmlFor="">Titulo</label>
+            <input type="text" />
+
+            <label htmlFor="">Imagem Link</label>
+            <input type="text" />
+
+            <label htmlFor="">Tipo do projeto</label>
+            <input type="text" />
+
+            <label htmlFor="">link do repositorio</label>
+            <input type="text" />
+
+            <label htmlFor="">Link da página</label>
+            <input type="text" />
+        
+            <label htmlFor="">descrição</label>
+            <input type="text" />
+
+
+            <Button text="Editar"/>
+          </form>
 
         </div>
 
