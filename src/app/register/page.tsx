@@ -61,7 +61,7 @@ const router = useRouter()
             <Input  title="Linkedin" error={errors.linkedin_perfil} register={register("linkedin_perfil")}/>
             <Input  title="Git Hub" error={errors.git_hub_perfil} register={register("git_hub_perfil")}/>
            
-            <Button key={"Logar"} text="Logar" type="submit" />
+            <Button key={"Logar"} text="Criar conta" type="submit" />
         </form>
 
     </StyledLogin>
