@@ -6,9 +6,10 @@ import { Button } from "../buttons"
 
 
 interface ModalProps  {
+  formType?: string
 }
 
-export const Modal = ({}) => {
+export const Modal = ({formType}: ModalProps ) => {
 
   const {setModal} = useContext(GlobalContext)
 
@@ -41,8 +42,7 @@ export const Modal = ({}) => {
             <label htmlFor="">descrição</label>
             <input type="text" />
 
-
-            <Button text="Editar"/>
+            <Button type="button" text="Editar"/>
           </form>
 
         </div>

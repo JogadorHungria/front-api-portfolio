@@ -39,13 +39,15 @@ export const  StyledModal = styled.div`
         }
 
 
-
         form{
             min-width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+        
+            
+           
 
             input{
                 border-radius: 4px;
