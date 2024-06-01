@@ -18,6 +18,8 @@ align-items: center;
 justify-content: space-around;
 
 
+
+
 img{
 
     min-width: 90%;

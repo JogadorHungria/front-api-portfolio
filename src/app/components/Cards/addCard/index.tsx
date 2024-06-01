@@ -1,6 +1,8 @@
 "use client"
 
+import { useContext } from "react";
 import { StyledCardProject } from "./StyledCardProject";
+import { GlobalContext } from "@/app/provider";
 
 
 type TcardProps = {
@@ -9,12 +11,15 @@ type TcardProps = {
 
 }
 
+export const AddCard = ({type}:TcardProps) => {
 
-export const AddCard = ({}:TcardProps) => {
+  const {modal, setModal} = useContext(GlobalContext)
+
+
 
  return (
 
-    <StyledCardProject>
+    <StyledCardProject onClick={() => setModal(type)}>
       <div>
         <h1>+</h1>
       </div>        

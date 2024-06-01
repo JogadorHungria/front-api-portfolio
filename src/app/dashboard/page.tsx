@@ -1,11 +1,9 @@
 "use client"
 
 import { StyledLogin } from "./dashboardStyled";
-
 import { CardProject } from "../components/Cards";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { GlobalContext } from "../provider";
-import { useRouter } from "next/router";
 import { Modal } from "../components/Modal";
 import { AddCard } from "../components/Cards/addCard";
 
@@ -18,39 +16,10 @@ const Dashboard = () => {
     get_profile()
 
   },[])
-    
-  
-  // const router = useRouter()
-
-  //   const LoginSchema = z.object({
-  //     email: z.string().email("Insira um e-mail válido"),
-  //     password: z.string().min(6, "A senha deve ter no mínimo 6 caracteres"),
-  //   });
-
-  //   const {
-  //     register,
-  //     handleSubmit,
-  //     formState: { errors },
-  //   } = useForm({
-  //     resolver: zodResolver(LoginSchema),
-  //   });
-
-
-  //   const submit = (data: any) => {
-
-  //     alert(data);
-
-  //     router.push('/dashboard', { scroll: false })
-
-  //     return
-      
-  //   };
-
-    const cardNmbers = [1,2,3,4,5,6,7,8,9,10]
 
     return (
       <StyledLogin> 
-      { modal && <Modal />}
+      { modal && <Modal/>}
       { profile &&  
       <>
       
@@ -80,7 +49,7 @@ const Dashboard = () => {
           <h2>Stacks</h2>
           <ul>
 
-          <AddCard type="project"/>
+          <AddCard type="stack"/>
 
           {
               profile.stacks.map((pro: any)=> 
@@ -96,7 +65,7 @@ const Dashboard = () => {
 
           <ul>
 
-          <AddCard type="project"/>
+          <AddCard type="certificate"/>
 
           {
                profile.certificate.map((pro: any)=> 

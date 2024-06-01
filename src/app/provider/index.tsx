@@ -14,8 +14,8 @@ interface IGlobalContext {
    deletProject:  (id: number) => Promise<void>
    deletStack: (id: number) => Promise<void>
    deletCertificate: (id: number) => Promise<void>
-   modal: Boolean
-   setModal: React.Dispatch<Boolean>
+   modal: Boolean | string
+   setModal: React.Dispatch<Boolean | string>
    
 };
 
@@ -29,7 +29,7 @@ export const GlobalContext = createContext<IGlobalContext>({} as IGlobalContext)
 export const GlobalProvider = ({ children } : IChildren ) => {
  
 
-  const [modal, setModal] = useState<Boolean>(false)
+  const [modal, setModal] = useState<Boolean | string>(false)
 
   const [profile, setProfile] = useState<IUser| null>( null)
 

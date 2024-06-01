@@ -1,20 +1,16 @@
-import { MouseEventHandler, useContext } from "react"
+import { useContext } from "react"
 import { StyledModal } from "./styledModal"
 import { GlobalContext } from "@/app/provider"
-import { Button } from "../buttons"
 
 
 
-interface ModalProps  {
-  formType?: string
-}
-
-export const Modal = ({formType}: ModalProps ) => {
-
-  const {setModal} = useContext(GlobalContext)
 
 
-  
+
+export const Modal = ({} ) => {
+
+  const {setModal, modal} = useContext(GlobalContext)
+
   return  (
 
     <StyledModal>
@@ -22,7 +18,9 @@ export const Modal = ({formType}: ModalProps ) => {
         <div className="container_modal">
           <button onClick={()=> setModal(false)}>x</button>
 
-          <form action="">
+        <h1>{modal as any}</h1>
+         
+          {/* <form action="">
 
             <label htmlFor="">Titulo</label>
             <input type="text" />
@@ -43,7 +41,7 @@ export const Modal = ({formType}: ModalProps ) => {
             <input type="text" />
 
             <Button type="button" text="Editar"/>
-          </form>
+          </form> */}
 
         </div>
 
