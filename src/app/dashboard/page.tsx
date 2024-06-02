@@ -9,7 +9,7 @@ import { AddCard } from "../components/Cards/addCard";
 
 const Dashboard = () => {
 
-  const {profile, get_profile, modal, setModal } = useContext(GlobalContext)
+  const {profile, get_profile, modal } = useContext(GlobalContext)
   
   useEffect(() => { 
 
@@ -52,8 +52,8 @@ const Dashboard = () => {
           <AddCard type="newStack"/>
 
           {
-              profile.stacks.map((pro: any)=> 
-                <CardProject type="stack" key={pro.stack_id} img={pro.img} title={pro.title} id={pro.stack_id}/>)
+            profile.stacks.map((pro: any)=> 
+              <CardProject type="stack" key={pro.stack_id} img={pro.img} title={pro.title} id={pro.stack_id}/>)
           }
 
           </ul>

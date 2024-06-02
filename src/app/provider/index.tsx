@@ -114,7 +114,6 @@ export const GlobalProvider = ({ children } : IChildren ) => {
       const newProfile = {
         ...profile,
         stacks: newStackList
-
       }
       setProfile(newProfile as IUser)
 
@@ -154,10 +153,7 @@ export const GlobalProvider = ({ children } : IChildren ) => {
    
   }
 
-
-
   
-
    const get_profile = async ()  => {
 
      const tokenLocalStorage = localStorage.getItem("@token")

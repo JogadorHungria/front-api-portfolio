@@ -1,20 +1,26 @@
 import { z } from "zod"
 import { Input } from "../../../Input"
-import { title } from "process"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "../../../buttons"
+import { Api_portfolio } from "@/app/API/api_portfolio"
+import { useContext } from "react"
+import { GlobalContext } from "@/app/provider"
+
 
 export const FormAddProject = () => {
 
+    const {setProfile, profile, setModal} = useContext(GlobalContext)
 
     const creatPorjectSchema = z.object({
+
         title: z.string().min(1 , "Preencha este campo"),
         img: z.string().min(1 , "Preencha este campo"),
         page_link: z.string().min(1 , "Preencha este campo"),
         git_hub_link: z.string().min(1 , "Preencha este campo"),
         description: z.string().min(1 , "Preencha este campo"),
         type: z.string().min(1 , "Preencha este campo"),
+
     })
 
     const {
@@ -22,11 +28,36 @@ export const FormAddProject = () => {
         handleSubmit, 
         formState:{errors}} = useForm({resolver:zodResolver(creatPorjectSchema)} )
 
-        const creatPorject = () =>{
+        const creatPorject = async (data: any) =>{
 
-            alert("criou um projeto")
+            const tokenLocalStorage = localStorage.getItem("@token")
+            await Api_portfolio.post(`/project`, data ,{
+
+                headers:{
+                    'Authorization': `Bearer ${tokenLocalStorage}`
+                }
+
+            }).then(response => {
+                
+                console.log(response.data)
+
+                const newProfile = profile
+
+                newProfile.project.push(response.data)
+
+                setProfile(newProfile)
+                setModal(false)
+
+
+
+            }).catch(error => {
+
+                console.log(error.message)
+
+            })
         }
 
+        
 
     return(
 
