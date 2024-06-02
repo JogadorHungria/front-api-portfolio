@@ -69,7 +69,7 @@ const Dashboard = () => {
 
           {
                profile.certificate.map((pro: any)=> 
-                <CardProject type="certificate" key={pro.certificate_id} img={pro.img} title={pro.title} id={pro.certificate_id}/>)
+                <CardProject type="certificate" key={pro.certificate_id} img={pro.link_img} title={pro.title} id={pro.certificate_id}/>)
             }
 
           </ul>

@@ -4,10 +4,14 @@ import { title } from "process"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "../../../buttons"
+import { Api_portfolio } from "@/app/API/api_portfolio"
+import { useContext } from "react"
+import { GlobalContext } from "@/app/provider"
 
 export const FormAddStack = () => {
 
-
+    const {setProfile, profile, setModal} = useContext(GlobalContext)
+    
     const creatStackSchema = z.object({
         stack_name: z.string().min(1 , "Preencha este campo"),
 
@@ -18,9 +22,31 @@ export const FormAddStack = () => {
         handleSubmit, 
         formState:{errors}} = useForm({resolver:zodResolver(creatStackSchema)} )
 
-        const creatStack = () =>{
+        const creatStack = async (data: any) =>{
 
-            alert("criou uma Stack")
+            const tokenLocalStorage = localStorage.getItem("@token")
+            await Api_portfolio.post(`/stack`, data ,{
+
+                headers:{
+                    'Authorization': `Bearer ${tokenLocalStorage}`
+                }
+
+            }).then(response => {
+                
+                console.log(response.data)
+
+                const newProfile = profile
+
+                newProfile.stacks.push(response.data)
+
+                setProfile(newProfile)
+                setModal(false)
+
+            }).catch(error => {
+
+                console.log(error.message)
+
+            })
         }
 
 

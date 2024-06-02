@@ -48,16 +48,12 @@ export const FormAddProject = () => {
                 setProfile(newProfile)
                 setModal(false)
 
-
-
             }).catch(error => {
 
                 console.log(error.message)
 
             })
         }
-
-        
 
     return(
 
@@ -72,7 +68,6 @@ export const FormAddProject = () => {
             <Button text="Criar" type="submit"/>
             
         </form>
-
     )
 
 } 
