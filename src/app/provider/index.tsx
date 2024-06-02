@@ -16,7 +16,8 @@ interface IGlobalContext {
    deletCertificate: (id: number) => Promise<void>
    modal: Boolean | string
    setModal: React.Dispatch<Boolean | string>
-   
+   id:number | null
+   setId: React.Dispatch<number | null>
 };
 
 interface IChildren {
@@ -30,6 +31,7 @@ export const GlobalProvider = ({ children } : IChildren ) => {
  
 
   const [modal, setModal] = useState<Boolean | string>(false)
+  const [id, setId] = useState<number | null>(null)
 
   const [profile, setProfile] = useState<IUser| null>( null)
 
@@ -189,7 +191,9 @@ export const GlobalProvider = ({ children } : IChildren ) => {
       deletStack,
       deletCertificate,
       setModal,
-      modal
+      modal,
+      id,
+      setId
       }}>
       {children}
     </GlobalContext.Provider>

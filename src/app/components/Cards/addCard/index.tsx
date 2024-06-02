@@ -7,7 +7,7 @@ import { GlobalContext } from "@/app/provider";
 
 type TcardProps = {
 
-  type: "project" | "stack" | "certificate"
+  type: string
 
 }
 

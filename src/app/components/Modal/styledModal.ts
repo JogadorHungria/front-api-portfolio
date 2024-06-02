@@ -20,7 +20,6 @@ export const  StyledModal = styled.div`
 
         justify-content: flex-start;
        
-
     }
 
 

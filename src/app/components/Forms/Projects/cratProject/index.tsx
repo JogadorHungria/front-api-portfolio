@@ -1,9 +1,9 @@
 import { z } from "zod"
-import { Input } from "../../Input"
+import { Input } from "../../../Input"
 import { title } from "process"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Button } from "../../buttons"
+import { Button } from "../../../buttons"
 
 export const FormAddProject = () => {
 

@@ -34,7 +34,7 @@ const Dashboard = () => {
           <h2>Projects</h2>
           <ul>
 
-          <AddCard type="project"/>
+          <AddCard type="newProject"/>
 
             {
              profile.project.map((pro: any)=> 
@@ -49,7 +49,7 @@ const Dashboard = () => {
           <h2>Stacks</h2>
           <ul>
 
-          <AddCard type="stack"/>
+          <AddCard type="newStack"/>
 
           {
               profile.stacks.map((pro: any)=> 
