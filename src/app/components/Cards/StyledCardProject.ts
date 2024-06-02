@@ -22,9 +22,13 @@ justify-content: space-around;
 
 img{
 
-    min-width: 90%;
+    width: 200px;
+    height: 250px;
+
+    max-width: 93%;
     max-height: 70%;
 
+    border-radius: 5px;
 }
 
 div{
