@@ -5,6 +5,8 @@ import { FormAddProject } from "../Forms/Projects/cratProject"
 import { FormEditProject } from "../Forms/Projects/pathProject"
 import { FormAddStack } from "../Forms/Stacks/cratStack"
 import { FormEditStack } from "../Forms/Stacks/pathStack"
+import { FormAddCertificate } from "../Forms/Certificates/cratCertificates"
+import { FormEditCertificate } from "../Forms/Certificates/pathCertificates"
 
 
 export const Modal = ({} ) => {
@@ -23,6 +25,11 @@ export const Modal = ({} ) => {
 
           { modal == "newStack" && <FormAddStack />}
           { modal == "editStack" && <FormEditStack />}
+
+          { modal == "addCertificate" && <FormAddCertificate />}
+          { modal == "editCertificate" && <FormEditCertificate />}
+          
+          
           
         </div>
 

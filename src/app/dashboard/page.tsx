@@ -65,7 +65,7 @@ const Dashboard = () => {
 
           <ul>
 
-          <AddCard type="certificate"/>
+          <AddCard type="addCertificate"/>
 
           {
                profile.certificate.map((pro: any)=> 

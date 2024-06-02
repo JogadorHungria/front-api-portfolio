@@ -24,6 +24,7 @@ export const CardProject = ({img , title , id , project , type}: TcardProps) => 
 
     if(type === "project"){  setModal("editProject")}
     if(type === "stack"){setModal("editStack")}
+    if(type === "certificate"){setModal("editCertificate")}
 
     setId(id)
 

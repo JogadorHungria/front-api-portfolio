@@ -26,7 +26,7 @@ export const FormEditStack = () => {
     return(
 
         <form onSubmit={handleSubmit(editStack)}>
-             <h2>Editar Stack</h2>
+            <h2>Editar Stack</h2>
             <Input type="text" title="Nome" key="stackName" error={errors.stack_name} register={register("stack_name")}/>
             <Button text="Criar" type="submit"/>
             
