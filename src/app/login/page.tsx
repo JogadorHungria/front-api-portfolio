@@ -29,7 +29,7 @@ const {logar} = useContext(GlobalContext)
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(LoginSchema),
+    resolver: zodResolver(LoginSchema)
   });
 
 

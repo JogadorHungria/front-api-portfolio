@@ -22,8 +22,7 @@ form{
 
     
     input{
-        border: solid 1px 
-        ;
+        border: solid 1px;
     }
 
 }

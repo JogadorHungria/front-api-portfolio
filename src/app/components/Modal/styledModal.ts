@@ -14,16 +14,26 @@ export const  StyledModal = styled.div`
     align-items: center;
     justify-content: center;
     opacity: 100%;
+    overflow: auto;
     
+    @media (max-height: 700px) {
+
+        justify-content: flex-start;
+       
+
+    }
+
+
 
     .container_modal{
 
-        padding: 50px 10px;
+        padding: 50px 20px;
         border-radius: 4px;
         background-color:blue;
-        min-height: 200px;
+        min-height: max-content;
         min-width: 400px;
         position: relative;
+     
 
         > button{
 
@@ -40,25 +50,25 @@ export const  StyledModal = styled.div`
 
 
         form{
-            min-width: 100%;
+
+           
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        
-            
-           
-
+          
             input{
                 border-radius: 4px;
-                width: 90%;
+                min-width: 100%;
                 font-size: 18px;
+            }
+
+            span{ 
+                font-weight:600 
             }
 
             button{
                 margin-top: 20px;
                 position: relative;
-                width: 90%;
+                width: 100%;
             }
 
         }
