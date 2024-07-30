@@ -21,12 +21,14 @@ li, ul{
 }
 
 body{
-  background-image: url(../../public/pexels-riccardo-bertolo-4245826.jpg);
+  
+  /* background-image: url(../../public/pexels-riccardo-bertolo-4245826.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 
-  color: white;
+  background-color: rgb(36, 131, 255);
+  color: rgb(241, 241, 241);
   
   min-height: 100vh;
 }

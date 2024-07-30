@@ -17,7 +17,7 @@ section{
     padding: 20px;
     border-radius: 6px;
 
-    background-color: rgb(0, 0, 90);
+    background-color: rgb(190, 190, 190);
     display: flex;
     flex-direction: column;
 

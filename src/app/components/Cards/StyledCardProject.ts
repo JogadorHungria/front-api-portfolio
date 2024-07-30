@@ -18,8 +18,6 @@ align-items: center;
 justify-content: space-around;
 
 
-
-
 img{
 
     width: 200px;
@@ -54,11 +52,9 @@ div{
         background-color: red;
         color: white;
         border: solid 1px;
+        
     }
 
 }
-
-
-
 
 `

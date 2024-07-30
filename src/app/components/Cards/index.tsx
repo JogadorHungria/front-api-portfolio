@@ -2,7 +2,6 @@
 
 import { useContext } from "react";
 import { StyledCardProject } from "./StyledCardProject";
-import { RiEditBoxFill } from "react-icons/ri";
 import { GlobalContext } from "@/app/provider";
 
 type TcardProps = {
@@ -28,7 +27,6 @@ export const CardProject = ({img , title , id , project , type}: TcardProps) => 
 
     setId(id)
 
-    
   }
 
   const deletCard = () =>{ 
@@ -47,6 +45,7 @@ export const CardProject = ({img , title , id , project , type}: TcardProps) => 
   }
 
   let imgLink = img || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBlPuD-kHu75Tl04N5i_UC3VIOZWeWZvqEHgtnf8Dbqw&s"
+ 
   return (
 
     <StyledCardProject>
